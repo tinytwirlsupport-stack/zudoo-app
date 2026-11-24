@@ -24,7 +24,9 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '100kb' }));
 
-app.get('/api/health', (req, res) => res.json({ ok: true }));
+app.get('/', (req, res) => res.json({ message: 'API is working', status: 'OK' }));
+app.get('/api', (req, res) => res.json({ message: 'API is working', status: 'OK' }));
+app.get('/api/health', (req, res) => res.json({ ok: true, message: 'API is working' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/income', incomeRouter);
